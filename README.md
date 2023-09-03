@@ -14,12 +14,13 @@ Using Python 3 (only 3.7 was tested):
 
 ## Usage
 
-1. Set the modpack name in `Client/Modpack - MultiMC Instance/instance.cfg` next to `name=`.
-2. Add mods to `Client/mods`, configs to `Client/config`, resource packs to `Client/resourcepacks`, and/or shaders to `Client/shaderpacks`. If needed, you can add server-only mods to `Client/mods/Server Only` (create the directory).
-3. Deploy the modpack to a zip file using `deploy.py`: first, copy `template/deploy_config.py` into the repo root directory first, then edit `deploy_config.py` as needed. Then you can run `python deploy.py` (use `python3` on macOS or Linux) to generate a zip file for the modpack and a sha256sum file.
-4. Test the modpack updater using `updater.py`: first, copy `template/updater_config.py` into the repo root directory first, then edit `updater_config.py` as needed. Then you can run `python updater.py` (use `python3` on macOS or Linux) to see how the updater works:
+1. Clone this repo with submodules: `git clone --recursive https://github.com/sbond75/ModpackDeployer.git`, or run `git submodule update --init --recursive` within the repo root if already cloned.
+2. Set the modpack name in `Client/Modpack - MultiMC Instance/instance.cfg` next to `name=`.
+3. Add mods to `Client/mods`, configs to `Client/config`, resource packs to `Client/resourcepacks`, and/or shaders to `Client/shaderpacks`. If needed, you can add server-only mods to `Client/mods/Server Only` (create the directory).
+4. Deploy the modpack to a zip file using `deploy.py`: first, copy `template/deploy_config.py` into the repo root directory first, then edit `deploy_config.py` as needed. Then you can run `python deploy.py` (use `python3` on macOS or Linux) to generate a zip file for the modpack and a sha256sum file.
+5. Test the modpack updater using `updater.py`: first, copy `template/updater_config.py` into the repo root directory first, then edit `updater_config.py` as needed. Then you can run `python updater.py` (use `python3` on macOS or Linux) to see how the updater works:
    - Within the updater, you can set the path to the instance of the modpack within MultiMC. Users must add the zip to MultiMC first. The complete steps are under [Using a modpack](## Using a modpack). You can modify these steps according to where the modpack is hosted. `scp` can be used to copy the file to a remote server for hosting if needed, explained in the next step below.
-5. To build an updater application and deploy it with `scp` to a server to be hosted, run `bash buildUpdaterExe.sh` (use `python3` on macOS or Linux). This requires 7zip to be installed on Windows, as it uses the `7z` command; on other operating systems, `zip` is used.
+6. To build an updater application and deploy it with `scp` to a server to be hosted, run `bash buildUpdaterExe.sh` (use `python3` on macOS or Linux). This requires 7zip to be installed on Windows, as it uses the `7z` command; on other operating systems, `zip` is used.
 
 ## Releasing a modpack
 
