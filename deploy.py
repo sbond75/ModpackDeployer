@@ -33,18 +33,11 @@ def copy(src, dest, symlinks=True):
 def copy_update(src, dest, symlinks=False):
     RabUtils.copy_update(src, dest, symlinks)
 
-modpackZipfileName = deploy_config.modpackZipfileName
-modpackZipfileSha256HashFileName = deploy_config.modpackZipfileSha256HashFileName
+modpackZipfileName = os.path.abspath(deploy_config.modpackZipfileName)
+modpackZipfileSha256HashFileName = os.path.abspath(deploy_config.modpackZipfileSha256HashFileName)
 def openModpackZipfile():
     #print(dir(zipfile))
-   try:
-      return zipfile.ZipFileExtended(modpackZipfileName, 'a', zipfile.ZIP_DEFLATED) #zipfile.ZipFile(modpackZipfileName, 'a', zipfile.ZIP_DEFLATED) #<"Open a ZIP file, where file can be either a path to a file (a string) or a file-like object. The mode parameter should be 'r' to read an existing file, 'w' to truncate and write a new file, or 'a' to append to an existing file. If mode is 'a' and file refers to an existing ZIP file, then additional files are added to it. If file does not refer to a ZIP file, then a new ZIP archive is appended to the file. This is meant for adding a ZIP archive to another file (such as python.exe)." ( https://docs.python.org/2/library/zipfile.html#zipfile-objects )
-   except FileNotFoundError:
-      # https://stackoverflow.com/questions/1158076/implement-touch-using-python #
-      from pathlib import Path
-      Path(modpackZipfileName).touch()
-      # #
-      return zipfile.ZipFileExtended(modpackZipfileName, 'w', zipfile.ZIP_DEFLATED)
+    return zipfile.ZipFileExtended(modpackZipfileName, 'a', zipfile.ZIP_DEFLATED) #zipfile.ZipFile(modpackZipfileName, 'a', zipfile.ZIP_DEFLATED) #<"Open a ZIP file, where file can be either a path to a file (a string) or a file-like object. The mode parameter should be 'r' to read an existing file, 'w' to truncate and write a new file, or 'a' to append to an existing file. If mode is 'a' and file refers to an existing ZIP file, then additional files are added to it. If file does not refer to a ZIP file, then a new ZIP archive is appended to the file. This is meant for adding a ZIP archive to another file (such as python.exe)." ( https://docs.python.org/2/library/zipfile.html#zipfile-objects )
 
 #(Optional) base_arcname: the base folder name to use in the archive for all files in the directory made relative to it.
     #^When setting the path to write to in the archive, this base_arcname will simply be inserted before whatever the path to a file in the provided path(argument 1) is.
