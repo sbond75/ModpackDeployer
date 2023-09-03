@@ -40,6 +40,10 @@ def openModpackZipfile():
    try:
       return zipfile.ZipFileExtended(modpackZipfileName, 'a', zipfile.ZIP_DEFLATED) #zipfile.ZipFile(modpackZipfileName, 'a', zipfile.ZIP_DEFLATED) #<"Open a ZIP file, where file can be either a path to a file (a string) or a file-like object. The mode parameter should be 'r' to read an existing file, 'w' to truncate and write a new file, or 'a' to append to an existing file. If mode is 'a' and file refers to an existing ZIP file, then additional files are added to it. If file does not refer to a ZIP file, then a new ZIP archive is appended to the file. This is meant for adding a ZIP archive to another file (such as python.exe)." ( https://docs.python.org/2/library/zipfile.html#zipfile-objects )
    except FileNotFoundError:
+      # https://stackoverflow.com/questions/1158076/implement-touch-using-python #
+      from pathlib import Path
+      Path(modpackZipfileName).touch()
+      # #
       return zipfile.ZipFileExtended(modpackZipfileName, 'w', zipfile.ZIP_DEFLATED)
 
 #(Optional) base_arcname: the base folder name to use in the archive for all files in the directory made relative to it.
