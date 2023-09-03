@@ -1,0 +1,39 @@
+/Client/mods/*
+# Placeholder file so this folder is kept
+!/Client/mods/.gitignore
+
+/Client/config/*
+# Placeholder file so this folder is kept
+!/Client/config/.gitignore
+
+/Client/resourcepacks/*
+# Placeholder file so this folder is kept
+!/Client/resourcepacks/.gitignore
+
+/Client/shaderpacks/*
+# Placeholder file so this folder is kept
+!/Client/shaderpacks/.gitignore
+
+/Server/mods/*
+# Placeholder file so this folder is kept
+!/Server/mods/.gitignore
+
+/Server/config/*
+# Placeholder file so this folder is kept
+!/Server/config/.gitignore
+
+/Server/bin/*
+# Placeholder file so this folder is kept
+!/Server/bin/.gitignore
+
+/deploy/*
+# Placeholder file so this folder is kept
+!/deploy/.gitignore
+
+
+/.venv*
+
+
+/deploy_config.py
+/updater_config.py
+/build_updater_config.sh

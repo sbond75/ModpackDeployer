@@ -1,0 +1,3 @@
+[submodule "zipextended"]
+	path = zipextended
+	url = https://github.com/gambl/zipextended
