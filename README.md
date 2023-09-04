@@ -26,7 +26,7 @@ Be sure to run these commands within the virtualenv created in [Dependency insta
 ## Releasing a modpack
 
 Be sure to run this command within the virtualenv created in [Dependency installation](## Dependency installation) if you are using a virtualenv by replacing `venvPathHere` with the path to your venv (such as `.venv`), or leave it unprovided to not use a virtualenv:
-1. To compile the updater into an application that others can execute *and* to update your local copy at the path configured within the updater GUI, run `deployAndUpdate.bat venvPathHere` on Windows (bash is required since it is invoked within the file) or `bash ./deployAndUpdate.bat venvPathHere` on macOS or Linux (this file is so simple that it works on all three operating systems). You can also perform individual steps from this process using the steps under [Usage](##Usage).
+1. To compile the updater into an application that others can execute *and* to update your local copy at the path configured within the updater GUI, run `deployAndUpdate.bat venvPathHere` on Windows (bash is required since it is invoked within the file) or `bash ./deployAndUpdate.sh venvPathHere` on macOS or Linux. You can also perform individual steps from this process using the steps under [Usage](##Usage).
 
 ## Using a modpack
 
@@ -34,7 +34,7 @@ Be sure to run this command within the virtualenv created in [Dependency install
 
 Installing the modpack:
 1. Download the modpack: http://hostedUrlHere/ModpackNameHere.zip
-2. Download MultiMC (a Minecraft launcher) from [https://multimc.org/#Download](https://multimc.org/#Download)
+2. Download MultiMC (a Minecraft launcher) from [https://multimc.org/#Download](https://multimc.org/#Download) and extract it.
 3. Run MultiMC.exe (or whatever the program name is). If you get a message saying "Windows Defender SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk.", you can click "More info" and then "Run anyway" to bypass it.
 4. Add your Minecraft account at the top right.
 5. Click "Add Instance" at the top left.

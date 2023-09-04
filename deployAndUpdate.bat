@@ -1,1 +1,1 @@
-python deploy.py && bash buildUpdaterExe.sh && python updater.py --just-update
+python deploy.py && bash buildUpdaterExe.sh %1 && python updater.py --just-update
