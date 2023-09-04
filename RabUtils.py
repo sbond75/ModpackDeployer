@@ -427,8 +427,11 @@ def zipdir_update(path, ziph, zipfileName, openZipfileFunc, base_arcname=None, f
     # code.InteractiveConsole(locals=locals()).interact()
     if not len(filesToReplaceFromZipfile) == 0:
         #ziph.close()
-        zipfile.delete_from_zip_file(zipfileName, pattern=None, file_names=filesToReplaceFromZipfile) #TODO: delete_from_zip_file is still not as fast as winrar.. it seems to have to rebuild the entire archive and recompress EVERYTHING (<zipfile.writestr does that i heard on stack overflow) (7zip is probably faster than winrar even!)
+        ##zipfile.delete_from_zip_file(zipfileName, pattern=None, file_names=filesToReplaceFromZipfile) #TODO: delete_from_zip_file is still not as fast as winrar.. it seems to have to rebuild the entire archive and recompress EVERYTHING (<zipfile.writestr does that i heard on stack overflow) (7zip is probably faster than winrar even!)
         #ziph = openZipfileFunc()
+
+        for x in filesToReplaceFromZipfile:
+            ziph.remove(x)
     #add all filesToReplaceFromZipfile to the zip file
     for i in range(len(filesToReplaceFromZipfile)):
         ziph.write(filesToReplaceFromZipfile_correspondingFileOnDisk[i], filesToReplaceFromZipfile[i])
