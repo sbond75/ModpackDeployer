@@ -20,5 +20,4 @@ modpackZipfileName="$(python -c 'import deploy_config; print(deploy_config.modpa
 modpackZipfileSha256HashFileName="$(python -c 'import deploy_config; print(deploy_config.modpackZipfileSha256HashFileName)')"
 
 source build_updater_config.sh
-scp -p "$modpackZipfileName" "$modpackZipfileSha256HashFileName" "$scpDestination"
-scp -p "$updaterZip" "$scpDestination"
+scp -p "$modpackZipfileName" "$modpackZipfileSha256HashFileName" "dist/$updaterZip" "$scpDestination"
