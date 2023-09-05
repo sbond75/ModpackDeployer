@@ -8,7 +8,15 @@ modpackName="$(python -c 'import deploy_config; print(deploy_config.modpackName)
 
 cd dist
 os="$(python -c 'import sys; print(sys.platform)')"
-updaterZip="../${modpackName}Updater.zip"
+
+if [ "$os" == "win32" ]; then # Windows
+    updaterZip="../${modpackName}Updater.zip"
+elif [ "$os" == "darwin" ]; then # macOS
+    updaterZip="../${modpackName}Updater_macOS.zip"
+else # assume Linux
+    updaterZip="../${modpackName}Updater_Linux.zip"
+fi
+
 if [ "$os" == "win32" ]; then
     7z a "$updaterZip" updater
 else
