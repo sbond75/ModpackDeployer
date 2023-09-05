@@ -11,7 +11,8 @@ if [ ! -z "$1" ]; then
 	exit 1
     fi
 fi
-pyinstaller --windowed --collect-all requests updater.py
+name="Modpack Updater"
+pyinstaller "--name=$name" --windowed --collect-all requests updater.py
 
 modpackName="$(python -c 'import deploy_config; print(deploy_config.modpackName)')"
 
@@ -27,8 +28,10 @@ else # assume Linux
 fi
 
 if [ "$os" == "win32" ]; then
-    7z a "$updaterZip" updater
-else
+    7z a "$updaterZip" "$name"
+elif [ "$os" == "darwin" ]; then # macOS
+    zip -r "$updaterZip" "${name}.app"
+else # assume Linux
     zip -r "$updaterZip" updater
 fi
 
