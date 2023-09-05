@@ -46,6 +46,9 @@ Installing the modpack:
 If you get an error before the game starts such as "RuntimeException: No OpenGL context found in the current thread.", you may need to update Forge under Edit Instance -> Version -> Install Forge. Select the version at the top (latest), not the one that has a star next to it.
 
 To update the modpack:
-1. Download, extract, and run the exe in the modpack updater: http://hostedUrlHere/ModpackNameHereUpdater.zip
+1. Download, extract, and run the modpack updater:
+   - Windows: http://hostedUrlHere/ModpackNameHereUpdater.zip
+   - macOS: http://hostedUrlHere/ModpackNameHereUpdater_macOS.zip
+   - Linux: http://hostedUrlHere/ModpackNameHereUpdater_Linux.zip
 2. In the text box, enter the path to your MultiMC instance which can be gotten from the "Instance Folder" button on the right sidebar of the MultiMC window (only needs to be entered in once, since it will be remembered)
 3. Press the update button.
