@@ -1,6 +1,15 @@
+justDeployUpdater="$2" # Optionally set this argument to "1" to only deploy the updater, not the other zips.
+
 if [ ! -z "$1" ]; then
     # Enter into the venv path provided in $1
-    source "$1/Scripts/activate"
+    if [ -e "$1/Scripts/activate" ]; then
+	source "$1/Scripts/activate"
+    elif [ -e "$1/bin/activate" ]; then
+	source "$1/bin/activate"
+    else
+	echo "\"activate\" script in virtualenv at $1 not found. Exiting."
+	exit 1
+    fi
 fi
 pyinstaller --collect-all requests updater.py
 
@@ -28,4 +37,8 @@ modpackZipfileName="$(python -c 'import deploy_config; print(deploy_config.modpa
 modpackZipfileSha256HashFileName="$(python -c 'import deploy_config; print(deploy_config.modpackZipfileSha256HashFileName)')"
 
 source build_updater_config.sh
-scp -p "$modpackZipfileName" "$modpackZipfileSha256HashFileName" "dist/$updaterZip" "$scpDestination"
+if [ "$justDeployUpdater" == "1" ]; then
+    scp -p "dist/$updaterZip" "$scpDestination"
+else
+    scp -p "$modpackZipfileName" "$modpackZipfileSha256HashFileName" "dist/$updaterZip" "$scpDestination"
+fi
