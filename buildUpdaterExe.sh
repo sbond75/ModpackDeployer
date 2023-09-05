@@ -11,10 +11,9 @@ if [ ! -z "$1" ]; then
 	exit 1
     fi
 fi
-name="Modpack Updater"
-pyinstaller "--name=$name" --windowed --collect-all requests updater.py
-
 modpackName="$(python -c 'import deploy_config; print(deploy_config.modpackName)')"
+name="$modpackName Modpack Updater"
+pyinstaller "--name=$name" --windowed --collect-all requests updater.py
 
 cd dist
 os="$(python -c 'import sys; print(sys.platform)')"
