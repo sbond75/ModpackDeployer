@@ -7,7 +7,7 @@ Intended for Minecraft modpack creators to distribute custom modpacks for [Multi
 Using Python 3 (only 3.7 was tested):
 1. Optionally use a virtualenv:
    - Windows: `python -m venv .venv` and then `.venv\Scripts\activate.bat`
-   - macOS or Linux: `python3 -m venv .venv` and then `source .venv/Scripts/activate`
+   - macOS or Linux: `python3 -m venv .venv` and then `source .venv/bin/activate`
 2. Install pip packages (use `pip3` instead of `pip` if on macOS or Linux):
    1. Install packages for deploy.py: `pip install ruamel.std.zipfile`
    2. Install packages for updater.py: `pip install pyinstaller requests`
