@@ -11,7 +11,7 @@ if [ ! -z "$1" ]; then
 	exit 1
     fi
 fi
-pyinstaller --collect-all requests updater.py
+pyinstaller --windowed --collect-all requests updater.py
 
 modpackName="$(python -c 'import deploy_config; print(deploy_config.modpackName)')"
 
@@ -29,7 +29,7 @@ fi
 if [ "$os" == "win32" ]; then
     7z a "$updaterZip" updater
 else
-    zip "$updaterZip" updater
+    zip -r "$updaterZip" updater
 fi
 
 cd ..
