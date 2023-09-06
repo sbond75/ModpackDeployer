@@ -26,7 +26,7 @@ Be sure to run these commands within the virtualenv created in [Dependency insta
 ## Releasing a modpack
 
 Be sure to run this command within the virtualenv created in [Dependency installation](## Dependency installation) if you are using a virtualenv by replacing `venvPathHere` with the path to your venv (such as `.venv`), or leave it unprovided to not use a virtualenv:
-1. To compile the updater into an application that others can execute *and* to update your local copy at the path configured within the updater GUI, run `deployAndUpdate.bat venvPathHere` on Windows (bash is required since it is invoked within the file) or `bash ./deployAndUpdate.sh venvPathHere` on macOS or Linux. You can also perform individual steps from this process using the steps under [Usage](##Usage).
+1. To compile the updater into an application that others can execute *and* to update your local copy at the path configured within the updater GUI, run `./deployAndUpdate.bat venvPathHere` in [Git Bash](https://git-scm.com/downloads) on Windows (bash is required since it is invoked within the file) or `bash ./deployAndUpdate.sh venvPathHere` on macOS or Linux. You can also perform individual steps from this process using the steps under [Usage](##Usage).
 
 ## Using a modpack
 

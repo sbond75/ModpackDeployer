@@ -28,8 +28,10 @@ class Unbuffered(object):
        return getattr(self.stream, attr)
 
 import sys
-sys.stdout = Unbuffered(sys.stdout)
-sys.stderr = Unbuffered(sys.stderr)
+if sys.stdout is not None:
+   sys.stdout = Unbuffered(sys.stdout)
+if sys.stderr is not None:
+   sys.stderr = Unbuffered(sys.stderr)
 # #
 
 #ConfigParser import#
