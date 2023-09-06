@@ -28,9 +28,9 @@ class Unbuffered(object):
        return getattr(self.stream, attr)
 
 import sys
-if sys.stdout is not None:
+if sys.stdout is not type(None) and sys.stdout is not None:
    sys.stdout = Unbuffered(sys.stdout)
-if sys.stderr is not None:
+if sys.stderr is not type(None) and sys.stderr is not None:
    sys.stderr = Unbuffered(sys.stderr)
 # #
 
