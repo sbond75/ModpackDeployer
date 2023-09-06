@@ -39,7 +39,7 @@
 /build_updater_config.sh
 
 
-/updater.spec
+/*.spec
 /dist/
 /build/
 __pycache__/
