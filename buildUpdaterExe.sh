@@ -13,7 +13,8 @@ if [ ! -z "$1" ]; then
 fi
 modpackName="$(python -c 'import deploy_config; print(deploy_config.modpackName)')"
 name="$modpackName Modpack Updater"
-pyinstaller "--name=$name" --windowed --collect-all requests updater.py
+# `--noconfirm`: "Replace output directory (default: SPECPATH/dist/SPECNAME) without asking for confirmation" ( https://pyinstaller.org/en/stable/usage.html#options )
+pyinstaller --noconfirm "--name=$name" --windowed --collect-all requests updater.py
 
 cd dist
 os="$(python -c 'import sys; print(sys.platform)')"
