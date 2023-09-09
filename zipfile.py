@@ -1320,6 +1320,7 @@ class ZipFile:
             else:
                 # Historical ZIP filename encoding
                 filename = filename.decode('cp437')
+            filename = os.path.normpath(filename)
             # Create ZipInfo instance to store file information
             x = ZipInfo(filename)
             x.extra = fp.read(centdir[_CD_EXTRA_FIELD_LENGTH])
@@ -1500,8 +1501,8 @@ class ZipFile:
             else:
                 fname_str = fname.decode("cp437")
 
-            #if fname_str != zinfo.orig_filename:
-            if fname_str != zinfo.orig_filename and os.path.normpath(fname_str) != zinfo.orig_filename:
+            if fname_str != zinfo.orig_filename:
+            #if fname_str != zinfo.orig_filename and os.path.normpath(fname_str) != zinfo.orig_filename:
                 raise BadZipFile(
                     'File name in directory %r and header %r differ.'
                     % (zinfo.orig_filename, fname))
