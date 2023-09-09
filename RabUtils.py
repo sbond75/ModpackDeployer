@@ -388,6 +388,7 @@ def zipdir_update(path, ziph, zipfileName, openZipfileFunc, base_arcname=None, f
             arcname = convertToUnixPathAndNormalize(arcname)
         else:
             arcname = convertToUnixPathAndNormalize(fname)
+        fname = convertToUnixPathAndNormalize(fname)
         try:
             # print("1: ")
             # import code
