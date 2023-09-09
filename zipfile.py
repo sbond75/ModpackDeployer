@@ -1501,8 +1501,8 @@ class ZipFile:
             else:
                 fname_str = fname.decode("cp437")
 
-            if fname_str != zinfo.orig_filename:
-            #if fname_str != zinfo.orig_filename and os.path.normpath(fname_str) != zinfo.orig_filename:
+            #if fname_str != zinfo.orig_filename:
+            if fname_str != zinfo.orig_filename and os.path.normpath(fname_str) != zinfo.orig_filename:
                 raise BadZipFile(
                     'File name in directory %r and header %r differ.'
                     % (zinfo.orig_filename, fname))
